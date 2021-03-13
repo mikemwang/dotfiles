@@ -124,7 +124,7 @@ bindsym $mod+semicolon split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym F11 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -132,10 +132,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+f focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -199,9 +199,6 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-workspace_auto_back_and_forth yes
-
-
 
 
 ################################################################################
@@ -229,6 +226,7 @@ mode "$mode_system" {
 	bindsym Pause exec --no-startup-id $i3lockwall, mode "default"
 	bindsym e exec --no-startup-id i3-msg exit, mode "default"
 	bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
+    bindsym ScrollLock exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
 	bindsym r exec --no-startup-id systemctl reboot, mode "default"
 	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
 	bindsym Return mode "default"
@@ -283,6 +281,85 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+
+
+################################################################################
+# COLORS
+################################################################################
+
+# special
+set_from_resource $foreground foreground #C6C6C6
+set_from_resource $background background #1C1C1C
+set_from_resource $cursorColor cursorColor #C6C6C6
+
+# black
+set_from_resource $black1 color0 #303030
+set_from_resource $black2 color8 #444444
+set $trueblack #000000
+
+# red
+set_from_resource $red1 color1 #d75f5f
+set_from_resource $red2 color9 #d75f5f
+
+# green
+set_from_resource $green1 color2 #87AF87
+set_from_resource $green2 color10 #87AF87
+
+# yellow
+set_from_resource $yellow1 color3 #ffd75f
+set_from_resource $yellow2 color11 #ffd75f
+
+# blue
+set_from_resource $blue1 color4 #87afd7
+set_from_resource $blue2 color12 #87afd7
+
+# magenta
+set_from_resource $cyan1 color5 #afafd7
+set_from_resource $cyan2 color13 #afafd7
+
+# cyan
+set_from_resource $cyan1 color6 #afd7ff
+set_from_resource $cyan2 color14 #afd7ff
+
+# white
+set_from_resource $white1 color7 #4E4E4E
+set_from_resource $white2 color15 #ffffff
+
+################################################################################
+# DESIGN
+################################################################################
+
+# hide borders when there's only one window
+hide_edge_borders smart
+
+set $focused_window_border #FFAAAA
+
+# class border backgr. text indicator child_border 
+client.focused 		#333333 $focused_window_border $white2 #285577
+client.focused_inactive #333333 $background $foreground #484e50
+client.unfocused 	#333333 #222222 #888888 #292d2e #222222
+client.urgent 		$red1 $red1 $white2 $red1 $red1
+client.placeholder 	#000000 #0c0c0c $white2 #000000 #0c0c0c
+
+# clearer border indication
+for_window [class="^.*"] border pixel 5
+
+
+
+################################################################################
+# SCRATCHPADS
+################################################################################
+
+# Terminal scratchpad
+for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
+bindsym $mod+space [instance="urxvt_scratchpad"] scratchpad show
+exec urxvtc -name urxvt_scratchpad
+
+# htop scratchpad
+for_window [instance="htop_scratchpad"] move to scratchpad, border none
+bindsym $mod+Shift+space [instance="htop_scratchpad"] scratchpad show
+exec urxvtc -name htop_scratchpad -e htop
 
 
 
