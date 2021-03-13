@@ -31,3 +31,7 @@ X Error of failed request:  BadName (named color or font does not exist)
 
 reboot and try again. The interface name should change from something like
 HDMI-1 (no middle letter) to HDMI-A-0 (middle letter).
+
+### Audio
+Install `pulseaudio` and `pavucontrol` to set things up, just alsa by itself 
+doesn't seem to be sufficient
