@@ -214,8 +214,29 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+################################################################################
+# SHUTDOWN RESTART SUSPEND LOCK
+################################################################################
+set $i3lockwall i3lock -i ~/.config/i3/wallpapers/lamp_1920x1080_centered_blur.png
+
+# shutdown / restart / suspend...
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (CTRL+s) shutdown
+
+mode "$mode_system" {
+	bindsym l exec --no-startup-id $i3lockwall, mode "default"
+	bindsym Pause exec --no-startup-id $i3lockwall, mode "default"
+	bindsym e exec --no-startup-id i3-msg exit, mode "default"
+	bindsym s exec --no-startup-id $i3lockwall && systemctl suspend, mode "default"
+	bindsym r exec --no-startup-id systemctl reboot, mode "default"
+	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+#bindsym $mod+BackTick mode "$mode_system"
+bindsym Pause mode "$mode_system"
 
 
 
@@ -225,14 +246,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # make sure to install feh prior to this
 exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/i3/wallpapers/lamp_1920x1080_centered.png
-#set $i3lockwall ~/.config/i3/wallpapers/lamp_1920x1080_centered_blur.png
 
 
 
-################################################################################
-# LOCK
-################################################################################
-bindsym Mod4+l exec --no-startup-id i3lock -i ~/.config/i3/wallpapers/lamp_1920x1080_centered_blur.png
 
 
 
