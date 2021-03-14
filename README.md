@@ -35,3 +35,6 @@ HDMI-1 (no middle letter) to HDMI-A-0 (middle letter).
 ### Audio
 Install `pulseaudio` and `pavucontrol` to set things up, just alsa by itself 
 doesn't seem to be sufficient
+
+### Fonts
+pacman -Syu awesome-terminal-fonts
