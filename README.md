@@ -32,6 +32,15 @@ X Error of failed request:  BadName (named color or font does not exist)
 reboot and try again. The interface name should change from something like
 HDMI-1 (no middle letter) to HDMI-A-0 (middle letter).
 
+To make this permenant, create the following file:
+
+/etc/X11/xorg.conf.d/20-amdgpu.conf
+Section "Device"
+     Identifier "AMD"
+     Driver "amdgpu"
+     Option "TearFree" "true"
+EndSection
+
 ### Audio
 Install `pulseaudio` and `pavucontrol` to set things up, just alsa by itself 
 doesn't seem to be sufficient

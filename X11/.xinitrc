@@ -1,8 +1,9 @@
-# start urxvt daemon, this is makes it fast and low-memory for multiple instances of urxvt
-urxvtd -o -q -f
+# switch to termite
+## start urxvt daemon, this is makes it fast and low-memory for multiple instances of urxvt
+#urxvtd -o -q -f
 
-# colors for urxvt
-xrdb -merge ~/.config/X11/.Xresources
+## colors for urxvt
+#xrdb -merge ~/.config/X11/.Xresources
 
 # start the kdeconnect daemon. for some reason the autostart entry it creates on install
 # does not seem to work
