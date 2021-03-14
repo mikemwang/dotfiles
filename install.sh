@@ -32,3 +32,13 @@ ln -sf "$PWD/xinit/.xinitrc $HOME/.xinitrc"
 
 rm -rf "$HOME/.config/i3"
 ln -s "$PWD/i3" "$HOME/.config"
+
+
+
+################################################################################
+#   zsh
+################################################################################
+mkdir -p "$HOME/.config/zsh"
+ln -sf "$PWD/zsh/.zshenv" "$HOME"
+ln -sf "$PWD/zsh/.zshrc" "$HOME/.config/zsh"
+
