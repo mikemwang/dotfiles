@@ -1,1 +1,0 @@
-/home/mike/github/dotfiles/xinit/.xinitrc /home/mike/.config/X11.xinitrc
