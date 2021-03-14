@@ -1,0 +1,12 @@
+alias ll='ls -lah'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gs='git status'
+alias n='nvim'
+alias pac='sudo pacman -S'
+alias pacyu='sudo pacman -Syu'
+
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+

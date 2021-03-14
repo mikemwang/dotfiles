@@ -22,7 +22,7 @@ ln -s "$PWD/X11" "$HOME/.config"
 #   xinit
 ################################################################################
 
-ln -sf "$PWD/xinit/.xinitrc $HOME/.xinitrc"
+ln -sf "$PWD/xinit/.xinitrc $HOME/.config/X11.xinitrc"
 
 
 
@@ -41,4 +41,8 @@ ln -s "$PWD/i3" "$HOME/.config"
 mkdir -p "$HOME/.config/zsh"
 ln -sf "$PWD/zsh/.zshenv" "$HOME"
 ln -sf "$PWD/zsh/.zshrc" "$HOME/.config/zsh"
+ln -sf "$PWD/zsh/aliases" "$HOME/.config/zsh/aliases"
+rm -rf "$HOME/.config/zsh/external"
+ln -sf "$PWD/zsh/external" "$HOME/.config/zsh"
+
 

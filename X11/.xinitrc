@@ -1,0 +1,1 @@
+/home/mike/github/dotfiles/xinit/.xinitrc
