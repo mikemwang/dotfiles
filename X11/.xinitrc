@@ -9,5 +9,8 @@
 # does not seem to work
 /usr/lib/kdeconnectd &
 
+# start udiskie, to auto mount connected usb devices
+# udiskie &
+
 # start i3, make this last as it will hang
 exec i3

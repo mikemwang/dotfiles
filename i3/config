@@ -22,7 +22,7 @@ font pango:FontAwesome 10
 
 
 ################################################################################
-# COMMON PROGRAMS
+# PROGRAMS ON BOOT
 ################################################################################
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -35,6 +35,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+exec --no-startup-id dunst
 
 
 # AUDIO
@@ -358,12 +360,12 @@ for_window [class="^.*"] border pixel 5
 # Terminal scratchpad
 for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
 bindsym $mod+space [instance="urxvt_scratchpad"] scratchpad show
-exec urxvtc -name urxvt_scratchpad -depth 32 -bg rgba:3f00/3f00/3f00/dddd
+exec termite #-name urxvt_scratchpad -depth 32 -bg rgba:3f00/3f00/3f00/dddd
 
 # htop scratchpad
 for_window [instance="htop_scratchpad"] move to scratchpad, border none
 bindsym $mod+Shift+space [instance="htop_scratchpad"] scratchpad show
-exec urxvtc -name htop_scratchpad -e htop
+exec termite -e htop
 
 
 
