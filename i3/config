@@ -339,14 +339,17 @@ set_from_resource $white2 color15 #ffffff
 # hide borders when there's only one window
 hide_edge_borders smart
 
-set $focused_window_border #FFAAAA
+set $focused_window_border #FFFFFF
+set $focused_inactive_window_border #777777
+#set $unfocused_window_border $background
+set $unfocused_window_border #FF0000
 
 # class border backgr. text indicator child_border 
-client.focused 		#333333 $focused_window_border $white2 #285577
-client.focused_inactive #333333 $background $foreground #484e50
-client.unfocused 	#333333 #222222 #888888 #292d2e #222222
-client.urgent 		$red1 $red1 $white2 $red1 $red1
-client.placeholder 	#000000 #0c0c0c $white2 #000000 #0c0c0c
+client.focused 		    #333333 $focused_window_border  $white2     #285577
+client.focused_inactive #333333 $focused_inactive_window_border             $foreground #484e50
+client.unfocused 	    #333333 $unfocused_window_border                 #888888     #292d2e #222222
+client.urgent 		    $red1   $red1                   $white2     $red1   $red1
+client.placeholder 	    #000000 #0c0c0c $white2 #000000 #0c0c0c
 
 # clearer border indication
 for_window [class="^.*"] border pixel 5
@@ -358,14 +361,14 @@ for_window [class="^.*"] border pixel 5
 ################################################################################
 
 # Terminal scratchpad
-for_window [instance="urxvt_scratchpad"] move to scratchpad, border none
-bindsym $mod+space [instance="urxvt_scratchpad"] scratchpad show
-exec termite #-name urxvt_scratchpad -depth 32 -bg rgba:3f00/3f00/3f00/dddd
+for_window [instance="termite_scratchpad"] move to scratchpad, border none
+bindsym $mod+space [instance="termite_scratchpad"] scratchpad show
+exec termite --name=termite_scratchpad #-depth 32 -bg rgba:3f00/3f00/3f00/dddd
 
 # htop scratchpad
 for_window [instance="htop_scratchpad"] move to scratchpad, border none
 bindsym $mod+Shift+space [instance="htop_scratchpad"] scratchpad show
-exec termite -e htop
+exec termite -e htop --name=htop_scratchpad
 
 
 
@@ -389,14 +392,15 @@ bar {
 
     # tray_output primary
     colors {
-        background $black2
+        #background $black2
+        background $background
         statusline $white2
         separator $white2
 
         # border background text
-        focused_workspace 	$background $background $red1
+        focused_workspace 	$black1 $black2 $red1
         active_workspace 	$black2 $black1 $white2
-        inactive_workspace 	$black1 $black2 $foreground
+        inactive_workspace 	$background $background $foreground
         urgent_workspace 	$red1 $red1 $white2
         binding_mode 		$background $red2 $white2
     }
