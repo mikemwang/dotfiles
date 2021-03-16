@@ -59,3 +59,6 @@ fi
 source $DOTFILES/zsh/scripts.sh
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# set the colors
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)

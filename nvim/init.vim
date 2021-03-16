@@ -80,4 +80,19 @@ nnoremap <leader>c :CHADopen<cr>
 
 set cuc
 set cul
+set colorcolumn=80
 
+"" navigate coc-snippets with tab and shift tab
+let g:coc_snippet_next = ''
+let g:coc_snippet_prev = ''
+
+inoremap <expr> <tab>
+   \ pumvisible() ? "\<c-n>" :
+   \ coc#jumpable() ? "\<c-r>=coc#rpc#request('snippetNext', [])<cr>" :
+   \ "\<c-j>"
+inoremap <expr> <S-tab>
+   \ pumvisible() ? "\<c-p>" :
+   \ coc#jumpable() ? "\<c-r>=coc#rpc#request('snippetPrev', [])<cr>" :
+   \ "\<c-k>"
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"

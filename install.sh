@@ -86,3 +86,10 @@ ln -sf "$DOTFILES/nvim/autoload/plug.vim" "$XDG_CONFIG_HOME/nvim/autoload/plug.v
 
 # Install (or update) all the plugins
 nvim --noplugin +PlugUpdate +qa
+
+
+
+#################################################################################
+##   dircolors
+#################################################################################
+ln -sf "$DOTFILES/dir_colors/nord_colors" "$HOME/.dir_colors"
