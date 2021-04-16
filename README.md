@@ -47,3 +47,35 @@ doesn't seem to be sufficient
 
 ### Fonts
 pacman -Syu awesome-terminal-fonts
+
+### xpointerbarrier
+May not want cursor to be able to leave the current workspace, install
+xpointerbarrier using the instructions here:
+
+https://www.uninformativ.de/git/xpointerbarrier/file/README.html
+
+works right out of the box. 
+
+
+### grub2 resolution
+at grub, press c to enter command line and enter "videoinfo". note list of
+available resolutions.
+
+edit /etc/default/grub at the line 
+`GRUB_GFXMODE=auto`
+and change to:
+`GRUB_GFXMODE="1920x1080x32,1024x768x32,auto"`
+where the first resolution is the desired one, the second is the fallback,
+and auto means select one that works automatically. Note the quotation marks.
+After this edit run:
+`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+and reboot. should work.
+
+
+### sound
+pavucontrol takes a long time to start, not sure why. Try this to switch sound profiles:
+
+pactl set-card-profile 2 output:analog-stereo
+
+refer to this stackoverflow:
+https://unix.stackexchange.com/questions/462670/set-default-profile-for-pulseaudio

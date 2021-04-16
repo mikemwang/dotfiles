@@ -1,0 +1,5 @@
+configuration {
+  width: 33;
+  location: 6;
+}
+@import "nord.rasi"

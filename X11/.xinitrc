@@ -13,6 +13,9 @@
 # set better key repeat rate
 xset r rate 200 25
 
+# turn off screen power management and prevent screen from blanking
+xset s off -dpms
+
 # start the kdeconnect daemon. for some reason the autostart entry it creates on install
 # does not seem to work
 /usr/lib/kdeconnectd &

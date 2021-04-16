@@ -7,6 +7,7 @@ alias gs='git status'
 alias n='nvim'
 alias pac='sudo pacman -S'
 alias pacyu='sudo pacman -Syu'
+alias dot='cd $DOTFILES'
 
 alias d='dirs -v'
 for index ({1..9}) alias "$index"="cd +${index}"; unset index
