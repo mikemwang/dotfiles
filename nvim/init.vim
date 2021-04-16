@@ -17,6 +17,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'preservim/tagbar'
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 "NOTE: system clipboard? don't really remember

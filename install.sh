@@ -61,7 +61,7 @@ ln -sf "$DOTFILES/dunst/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
 #################################################################################
 
 # requires lxappearance
-ln -s "$DOTFILES/themes" "$HOME/.themes"
+# ln -s "$DOTFILES/themes" "$HOME/.themes"
 
 
 
@@ -100,4 +100,5 @@ ln -sf "$DOTFILES/dir_colors/nord_colors" "$HOME/.dir_colors"
 #################################################################################
 ##   rofi
 #################################################################################
+rm -rf "$XDG_CONFIG_HOME/rofi"
 ln -s "$DOTFILES/rofi" "$XDG_CONFIG_HOME/rofi"
