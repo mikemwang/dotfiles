@@ -1,3 +1,4 @@
+"NOTE: plugins
 call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
 "    Plug 'chrisbra/csv.vim'
 "    Plug 'moll/vim-bbye'
@@ -18,25 +19,27 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'vim-airline/vim-airline'
 call plug#end()
 
+"NOTE: system clipboard? don't really remember
 set clipboard+=unnamedplus
 
+"NOTE: always center
 set scrolloff=999
 
-" do not create the swp swo etc. files
+"NOTE: do not create the swp swo etc. files
+"TODO reconsider having this. I have never used the swap files...
 set noswapfile
 
-" save undo trees in files
+"NOTE: save undo trees in files
 set undofile
 set undodir=$HOME/.config/nvim/undo
-
-" number of undo saved
 set undolevels=10000
 set undoreload=10000
 
-" hybrid line numbers
+"NOTE: hybrid line numbers
 set number
 set relativenumber
 
+"NOTE: whitespace things
 " use 4 spaces instead of tab ()
 " copy indent from current line when starting a new line
 set autoindent
@@ -45,20 +48,18 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
-" Show substitution
+"NOTE: Show substitution while typing it. VERY USEFUL
 set inccommand=nosplit
 
-" set leader
+"NOTE: set leader. note the leading backslash
 let mapleader = "\<space>"
-
-" make space not do anything
 nnoremap <space> <nop>
 
-" mappings for buffer and tab switching
+"NOTE: mappings for buffer and tab switching
 nnoremap <leader>bn :bn<cr> ;buffer next
 nnoremap <leader>tn gt ;new tab
 
-" Config for chrisbra/csv.vim
+"NOTE: Config for chrisbra/csv.vim
 augroup filetype_csv
     autocmd! 
 
@@ -66,7 +67,7 @@ augroup filetype_csv
     autocmd BufWritePre *.csv :%UnArrangeColumn
 augroup END
 
-" Config for fzf.vim (BONUS :D)
+"NOTE: fuzzy find for files under the cur working directory
 nnoremap <leader>f :Files<cr>
 
 " coc-vim settings
