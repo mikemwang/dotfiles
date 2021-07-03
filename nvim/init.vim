@@ -18,6 +18,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'Yggdroot/indentLine'
     Plug 'vim-airline/vim-airline'
     Plug 'vimwiki/vimwiki'
+    Plug 'junegunn/goyo.vim'
 call plug#end()
 
 "NOTE: system clipboard? don't really remember
@@ -86,7 +87,7 @@ nnoremap <leader>q :q<cr>
 inoremap jk <esc>
 noremap J 3j
 noremap K 3k
-nnoremap <leader>n :NERDTreeToggle<cr>
+nnoremap <leader>n :NERDTreeFocus<cr>
 nnoremap <leader>/ :noh<cr>
 
 noremap <leader>l <C-w>l
@@ -164,3 +165,14 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
                 \ }
+
+let g:vimwiki_listsyms = ' .o0X'
+
+" auto fold
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  "autocmd BufWinEnter * silent! loadview
+  au BufRead * silent! loadview
+augroup END
+
